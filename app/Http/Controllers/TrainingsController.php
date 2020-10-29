@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Training;
 use Illuminate\Http\Request;
+use Auth;
+use Datatables;
 
 class TrainingsController extends Controller
 {
@@ -24,7 +26,7 @@ class TrainingsController extends Controller
      */
     public function create()
     {
-        //
+        return view('training.create');
     }
 
     /**
@@ -44,9 +46,20 @@ class TrainingsController extends Controller
      * @param  \App\Models\Training  $training
      * @return \Illuminate\Http\Response
      */
-    public function show(Training $training)
+    public function show(Training $training, Request $request)
     {
-        //
+        if ($request->ajax()) {
+            $data = Training::all();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                    $btn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        return view('training.show', compact('training', $training));
     }
 
     /**
