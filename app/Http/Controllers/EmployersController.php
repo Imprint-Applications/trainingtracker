@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employer;
 use Illuminate\Http\Request;
+use Auth;
 
 class EmployersController extends Controller
 {
@@ -24,7 +25,7 @@ class EmployersController extends Controller
      */
     public function create()
     {
-        //
+        return view('employer.create');
     }
 
     /**
@@ -46,7 +47,8 @@ class EmployersController extends Controller
      */
     public function show(Employer $employer)
     {
-        //
+        $employer = Employer::all();
+        return view('employer.show', compact('employer', $employer));
     }
 
     /**

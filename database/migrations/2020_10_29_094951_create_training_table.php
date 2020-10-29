@@ -15,6 +15,11 @@ class CreateTrainingTable extends Migration
     {
         Schema::create('training', function (Blueprint $table) {
             $table->id();
+            $table->string('training_title');
+            $table->string('training_requirement');
+            $table->string('department');
+            $table->string('provider');
+            $table->string('refresher')->nullable();
             $table->timestamps();
         });
     }
