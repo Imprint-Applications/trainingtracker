@@ -31,6 +31,7 @@ Route::get('/dashboard', [UsersController::class, 'show'])->name('dashboard');
 Route::get('/training', [TrainingsController::class, 'show'])->name('trainingShow');
 Route::get('/training/create', [TrainingsController::class, 'create'])->name('trainingCreate');
 Route::put('/training/store', [TrainingController::class, 'store'])->name('trainingStore');
+Route::get('/training/{id}/view', [TrainingController::class, 'index'])->name('trainingView');
 
 // Employer
 Route::get('/employer', [EmployersController::class, 'show'])->name('employerShow');

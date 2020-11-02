@@ -16,7 +16,9 @@ class TrainingsController extends Controller
      */
     public function index()
     {
-        //
+        echo "It works";
+
+        return view('training.view', comptact('trainingDetails'));
     }
 
     /**

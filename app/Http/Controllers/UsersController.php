@@ -16,12 +16,11 @@ class UsersController extends Controller
         $id = Auth::user()->id;
         $allModules = UserModule::where('user_id', '=', 1)
             ->join('modules', 'user_modules.modules_id', '=', 'modules.id')
+
             ->get();
-        $compModules = UserModule::all();
+        $compModules = UserModule::get();
         // dd($allModules);
-        return view('/dashboard', compact([
-            'allModules' => $allModules,
-            // 'compModules' => $compModules,
-        ]));
+        return view('/dashboard', compact('allModules', 'compModules'));
+
     }
 }

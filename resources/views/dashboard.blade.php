@@ -6,7 +6,7 @@
             <div class="inline-block max-w-sm rounded overflow-hidden shadow-lg">
                 <div class="px-6 py-4">
                   <div class="font-bold text-xl mb-2">Completed Training</div>
-                  @foreach($allModules as $c)
+                  @foreach($compModules as $c)
                   <p class="text-gray-700 text-base">
                     <ul>
                     <li>{{ $c->module_name }}</li>
@@ -18,16 +18,18 @@
               <div class="inline-block max-w-sm rounded overflow-hidden shadow-lg">
                 <div class="px-6 py-4">
                   <div class="font-bold text-xl mb-2">Available Training</div>
+                  @foreach($allModules as $a)
                   <p class="text-gray-700 text-base">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                    {{$a->module_name}}
                   </p>
+                  @endforeach
                 </div>
               </div>
               <div class="inline-block max-w-sm rounded overflow-hidden shadow-lg">
                 <div class="px-6 py-4">
                   <div class="font-bold text-xl mb-2">Request Training</div>
                   <p class="text-gray-700 text-base">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                    <a href="{{ route('trainingView', Auth::user()->id) }}">Request</a>
                   </p>
                 </div>
               </div>
