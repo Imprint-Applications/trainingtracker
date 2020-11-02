@@ -1,15 +1,36 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+@extends('layouts.master')
+@section('content')
+    <h1>Dashbaord</h1>
+    <div class="container mx-auto">
+        <div class="grid-flow-col auto-cols-max">
+            <div class="inline-block max-w-sm rounded overflow-hidden shadow-lg">
+                <div class="px-6 py-4">
+                  <div class="font-bold text-xl mb-2">Completed Training</div>
+                  @foreach($allModules as $c)
+                  <p class="text-gray-700 text-base">
+                    <ul>
+                    <li>{{ $c->module_name }}</li>
+                    </ul>
+                  </p>
+                  @endforeach
+                </div>
+              </div>
+              <div class="inline-block max-w-sm rounded overflow-hidden shadow-lg">
+                <div class="px-6 py-4">
+                  <div class="font-bold text-xl mb-2">Available Training</div>
+                  <p class="text-gray-700 text-base">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                  </p>
+                </div>
+              </div>
+              <div class="inline-block max-w-sm rounded overflow-hidden shadow-lg">
+                <div class="px-6 py-4">
+                  <div class="font-bold text-xl mb-2">Request Training</div>
+                  <p class="text-gray-700 text-base">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                  </p>
+                </div>
+              </div>
+          </div>
+      </div>
+@endsection
