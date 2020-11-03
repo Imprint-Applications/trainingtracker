@@ -19,29 +19,29 @@
         </tbody>
     </table>
 </div>
+@push('scripts')
+    <script type="text/javascript">
+        $(function () {
 
-<script type="text/javascript">
-    $(function () {
-
-      var table = $('.yajra-datatable').DataTable({
-          processing: true,
-          serverSide: true,
-          ajax: "{{ route('trainingShow') }}",
-          columns: [
-              {data: 'training_title', name: 'training_title'},
-              {data: 'training_requirement', name: 'training_requirement'},
-              {data: 'department', name: 'department'},
-              {data: 'provider', name: 'provider'},
-              {data: 'refresher', name: 'refresher'},
-              {
-                  data: 'action',
-                  name: 'action',
-                  orderable: true,
-                  searchable: true
-              },
-          ]
-      });
-
-    });
-  </script>
+        var table = $('.yajra-datatable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('trainingShow') }}",
+            columns: [
+                {data: 'training_title', name: 'training_title'},
+                {data: 'training_requirement', name: 'training_requirement'},
+                {data: 'department', name: 'department'},
+                {data: 'provider', name: 'provider'},
+                {data: 'refresher', name: 'refresher'},
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: true,
+                    searchable: true
+                },
+            ]
+        });
+        });
+    </script>
+@endpush
 @endsection

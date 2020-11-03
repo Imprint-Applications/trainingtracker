@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Training;
 use Illuminate\Http\Request;
 use Auth;
-use Datatables;
+use DataTables;
 
 class TrainingsController extends Controller
 {
@@ -16,9 +16,9 @@ class TrainingsController extends Controller
      */
     public function index()
     {
-        echo "It works";
+        $trainingDetails = "It works";
 
-        return view('training.view', comptact('trainingDetails'));
+        return view('training.view', compact('trainingDetails'));
     }
 
     /**

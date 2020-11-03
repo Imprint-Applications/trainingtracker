@@ -21,7 +21,7 @@
                       <p class="text-gray-700 text-base">{{ $e->employer_address }}</p>
                       </div>
                       <div class="flex items-center">
-                        <img class="w-10 h-10 rounded-full mr-4" src="/img/jonathan.jpg" alt="Avatar of Jonathan Reinink">
+                        <img class="w-50 h-50 rounded-full mr-4" src="{{ $e->employer_logo }}" alt="Avatar of Jonathan Reinink">
                         <div class="text-sm">
                           <p class="text-gray-900 leading-none">Jonathan Reinink</p>
                           <p class="text-gray-600">Aug 18</p>
