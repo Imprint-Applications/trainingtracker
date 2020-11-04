@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-
-<h1>Training Details for </h1>
-
+@foreach($training as $t)
+<h1>Training Details for {{ $t->training_title }}</h1>
+@endforeach
 @endsection

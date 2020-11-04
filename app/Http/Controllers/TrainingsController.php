@@ -14,11 +14,27 @@ class TrainingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, Training $training)
     {
-        $trainingDetails = "It works";
-
-        return view('training.view', compact('trainingDetails'));
+        $training_id = $request->training_id;
+        $btn = route('/training/'. $id .'/view');
+        if ($request->ajax()) {
+            $data = Training::all();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                    return '<a href="javascript:void(0)" class="view btn btn-success btn-sm">View</a>';
+                })
+                ->editColumn('delete', function($row){
+                    return '<a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+                })
+                ->editColumn('edit', function($row){
+                    return '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a>';
+                })
+                ->rawColumns(['action', 'delete', 'edit'])
+                ->make(true);
+        }
+        return view('training.show', compact('training', $training));
     }
 
     /**
@@ -37,7 +53,7 @@ class TrainingsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //
     }
@@ -48,20 +64,9 @@ class TrainingsController extends Controller
      * @param  \App\Models\Training  $training
      * @return \Illuminate\Http\Response
      */
-    public function show(Training $training, Request $request)
+    public function show()
     {
-        if ($request->ajax()) {
-            $data = Training::all();
-            return Datatables::of($data)
-                ->addIndexColumn()
-                ->addColumn('action', function($row){
-                    $btn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
-                    return $btn;
-                })
-                ->rawColumns(['action'])
-                ->make(true);
-        }
-        return view('training.show', compact('training', $training));
+        return view('training.view');
     }
 
     /**
@@ -72,7 +77,7 @@ class TrainingsController extends Controller
      */
     public function edit(Training $training)
     {
-        //
+        return view('training.edit');
     }
 
     /**

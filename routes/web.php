@@ -28,10 +28,12 @@ Route::get('/', function () {
 Route::get('/dashboard', [UsersController::class, 'show'])->name('dashboard');
 
 // Training
-Route::get('/training', [TrainingsController::class, 'show'])->name('trainingShow');
+Route::get('/training', [TrainingsController::class, 'index'])->name('trainingShow');
 Route::get('/training/create', [TrainingsController::class, 'create'])->name('trainingCreate');
 Route::put('/training/store', [TrainingsController::class, 'store'])->name('trainingStore');
-Route::get('/training/{id}/view', [TrainingsController::class, 'index'])->name('trainingView');
+Route::get('/training/{id}/view', [TrainingsController::class, 'show'])->name('trainingView');
+Route::get('/training/{id}/edit', [TrainingsController::class, 'edit'])->name('trainingEdit');
+
 
 // Employer
 Route::get('/employer', [EmployersController::class, 'show'])->name('employerShow');

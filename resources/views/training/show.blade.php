@@ -12,7 +12,9 @@
                 <th>Department</th>
                 <th>Provider</th>
                 <th>Refresher</th>
-                <th>Action</th>
+                <th>action</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -33,12 +35,9 @@
                 {data: 'department', name: 'department'},
                 {data: 'provider', name: 'provider'},
                 {data: 'refresher', name: 'refresher'},
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: true,
-                    searchable: true
-                },
+                {data: 'action', name: 'action', orderable: true, searchable: true},
+                {data: 'edit', name: 'edit', orderable: true, searchable: true},
+                {data: 'delete', name: 'delete', orderable: true, searchable: true},
             ]
         });
         });
